@@ -17,8 +17,8 @@ import alexmog.neuraltests.game.Quadtree;
 public class EntityManager {
     private List<Entity> mToAdd = new ArrayList<>();
     private Map<Integer, Entity> mEntities = new ConcurrentHashMap<>();
-    private List<Entity> mCollided = new ArrayList<>();
-    private Quadtree mQuadTree = new Quadtree(0, new Rectangle(0, 0, Main.WIDTH, Main.HEIGHT));
+/*    private List<Entity> mCollided = new ArrayList<>();
+    private Quadtree mQuadTree = new Quadtree(0, new Rectangle(0, 0, Main.WIDTH, Main.HEIGHT));*/
     private int mLivingEntities = 0;
     
     public int getLivingEntitiesNumber() {
@@ -31,10 +31,10 @@ public class EntityManager {
         }
         mToAdd.clear();
         
-        mQuadTree.clear();
+/*        mQuadTree.clear();
         for (Entity e : mEntities.values()) {
             mQuadTree.insert(e);
-        }
+        }*/
         
         mLivingEntities = 0;
         for (int i : mEntities.keySet()) {
@@ -56,7 +56,7 @@ public class EntityManager {
         if (e == null) return;
         e.update(container, game, delta);
         // Collision detection
-        mCollided.clear();
+/*        mCollided.clear();
         mQuadTree.collideList(mCollided, e);
         for (int x = 0; x < mCollided.size(); ++x) {
             Entity cEntity = mCollided.get(x);
@@ -66,7 +66,7 @@ public class EntityManager {
                     e.isCollision(cEntity);                    
                 }
             }
-        }
+        }*/
     }
     
     private void drawQuadTree(Quadtree q, Graphics g) {
@@ -88,7 +88,7 @@ public class EntityManager {
         }
         
         g.setColor(Color.red);
-        drawQuadTree(mQuadTree, g);
+//        drawQuadTree(mQuadTree, g);
     }
     
     public void addEntity(Entity e) {
