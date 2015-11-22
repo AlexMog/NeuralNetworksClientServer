@@ -93,6 +93,9 @@
                <includes>
                    <include>com.esotericsoftware.kryo:kryo</include>
                    <include>com.esotericsoftware:*</include>
+                   <include>org.slick2d:*</include>
+                   <include>org.lwjgl.lwjgl:*</include>
+                   <include>org.objenesis:objenesis</include>
                </includes>
            </artifactSet>
            <createDependencyReducedPom>false</createDependencyReducedPom>
