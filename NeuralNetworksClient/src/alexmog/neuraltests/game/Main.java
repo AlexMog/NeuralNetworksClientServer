@@ -26,7 +26,7 @@ public class Main {
     public static final Deque<ServerListener.MyEntry> actions2 = new LinkedList<>();
 
     public static void main(String[] args) throws SlickException, IOException {
-        client = new Client(64000, 2048);
+        client = new Client(192000, 2048);
         client.start();
         Network.register(client);
         client.addListener(new ThreadedListener(new ServerListener()));
