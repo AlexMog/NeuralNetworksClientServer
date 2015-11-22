@@ -319,7 +319,7 @@ public class LivingEntity extends GeneticEntity {
             red = 1;
             green = 0;
         }
-        hatchTime = 3500;
+        hatchTime = 4000;
         maxLife = 3000;
         maxAge = 5200;
         for (int i = 0; i < EVO_POINTS; ++i) {
