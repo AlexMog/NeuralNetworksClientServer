@@ -55,9 +55,8 @@ public class EntityManager {
                 mEntities.remove(e);
                 Main.sendTCP(constructDeleteEntity(e), true);
             } else {
-                if (mUdpTimeout <= 0) {
+                if (e instanceof LivingEntity) {
                     Main.sendUDP(constructSyncDatas(e), true);
-                    mUdpTimeout = 0;
                 }
                 ++i;
                 if (e instanceof LivingEntity) {
@@ -65,7 +64,6 @@ public class EntityManager {
                 }
             }
         }
-        mUdpTimeout -= delta;
     }
     
     private void updateEntity(Entity e, int delta) {
