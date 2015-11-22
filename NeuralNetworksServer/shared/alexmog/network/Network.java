@@ -11,7 +11,7 @@ import alexmog.network.packets.RemoveEntityPacket;
 public class Network {
     public static int port = 42420;
     public static final int udpPort = 42421;
-    public static String host = "perso.mog-creations.com";
+    public static String host = "5.196.135.184";
     public static int version = 0;
     
     public static void register(EndPoint endPoint) {
