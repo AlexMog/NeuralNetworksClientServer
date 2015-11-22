@@ -23,7 +23,7 @@ public class Main {
     public static final Game game = new Game();
     
     public static void main(String[] args) throws IOException {
-        Server server = new Server() {
+        Server server = new Server(64000, 2048) {
             @Override
             protected Connection newConnection() {
                 return new Client();
