@@ -27,6 +27,7 @@ public class GameScreen implements GameState {
     public static int population;
     private PacketsInterpretator mInterpretator = new PacketsInterpretator();
     private Vector2f mCameraPos = new Vector2f();
+    private Vector2f mCameraSize = new Vector2f(1, 1);
     
     @Override
     public void init(GameContainer container, StateBasedGame game)
@@ -48,6 +49,7 @@ public class GameScreen implements GameState {
     public void render(GameContainer container, StateBasedGame game, Graphics g)
             throws SlickException {
         g.translate(mCameraPos.x, mCameraPos.y);
+        g.scale(mCameraSize.x, mCameraSize.y);
         mEntityManager.render(container, game, g);
         /*for (GeneticEntity e : mIntelligence) {
             e.render(container, game, g);
@@ -56,6 +58,7 @@ public class GameScreen implements GameState {
         for (Food f : mFoods) {
             f.render(container, game, g);
         }*/
+        g.scale(1, 1);
         g.translate(-mCameraPos.x, -mCameraPos.y);
         g.setColor(Color.white);
         g.drawString("Best generation: " + bestGeneration, 10, 70);
@@ -116,8 +119,7 @@ public class GameScreen implements GameState {
 
     @Override
     public void mouseWheelMoved(int change) {
-        // TODO Auto-generated method stub
-        
+        mCameraSize.set(mCameraSize.x + (float)change / 400, mCameraSize.y + (float)change / 400);
     }
 
     @Override
