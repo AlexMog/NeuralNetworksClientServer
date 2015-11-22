@@ -33,6 +33,7 @@ public class LivingEntity extends GeneticEntity {
 
     public LivingEntity() {
         mShape = new Circle(Main.rand.nextInt(EntityManager.WORLD_WIDTH), Main.rand.nextInt(EntityManager.WORLD_HEIGHT), 20);
+        System.out.println("Creating entity at " + mShape.getLocation());
         spikeCircle = new Circle(mShape.getCenterX(), mShape.getCenterY(), 0);
         reset();
     }
