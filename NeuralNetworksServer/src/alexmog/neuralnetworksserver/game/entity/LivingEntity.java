@@ -196,7 +196,7 @@ public class LivingEntity extends GeneticEntity {
             if (team == 0 && e instanceof Food) {
                 e.mToDelete = true;
                 mFitness += 15;
-                life += 100;
+                life += 300;
                 /*if (life > maxLife) {
                     life = maxLife;
                     mFitness -= 20;
@@ -320,16 +320,16 @@ public class LivingEntity extends GeneticEntity {
             green = 0;
         }
         hatchTime = 2500;
-        maxLife = 1000;
+        maxLife = 3000;
         maxAge = 5200;
         for (int i = 0; i < EVO_POINTS; ++i) {
             int random = Main.rand.nextInt(4);
             if (random == 0) {
-                damages += 2;
+                damages += 4;
             } else if (random == 1) {
                 hatchTime -= 10;
             } else if (random == 2) {
-                maxLife += 10; 
+                maxLife += 30; 
             } else {
                 maxAge += 100;
             }
