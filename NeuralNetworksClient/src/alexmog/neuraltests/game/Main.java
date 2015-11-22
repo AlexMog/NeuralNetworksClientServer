@@ -11,6 +11,7 @@ import org.newdawn.slick.SlickException;
 
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
+import com.esotericsoftware.kryonet.Listener.ThreadedListener;
 
 import alexmog.network.Network;
 import alexmog.neuraltests.game.client.ServerListener;
@@ -26,9 +27,9 @@ public class Main {
 
     public static void main(String[] args) throws SlickException, IOException {
         client = new Client();
-        Network.register(client);
-        client.addListener(new ServerListener());
         client.start();
+        Network.register(client);
+        client.addListener(new ThreadedListener(new ServerListener()));
         
         app = new AppGameContainer(new Game("Test"));
         app.setDisplayMode(Main.WIDTH, Main.HEIGHT, false);

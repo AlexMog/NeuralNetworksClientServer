@@ -99,7 +99,7 @@ public class GameScreen implements GameState {
             throws SlickException {
         Log.info("Connecting to server...");        
         try {
-            Main.client.connect(10000, Network.host, Network.port, Network.udpPort);
+            Main.client.connect(5000, Network.host, Network.port, Network.udpPort);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

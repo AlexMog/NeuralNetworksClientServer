@@ -24,7 +24,7 @@
 		<link>
 			<name>shared</name>
 			<type>2</type>
-			<location>E:/java-workspace/NeuralNetworksServer/shared</location>
+			<location>E:/java-workspace/NeuralNetworks/NeuralNetworksServer/shared</location>
 		</link>
 	</linkedResources>
 </projectDescription>

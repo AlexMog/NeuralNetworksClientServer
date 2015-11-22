@@ -30,9 +30,9 @@ public class Main {
             }
         };
         Network.register(server);
+        server.start();
         server.addListener(new ServerListener());
         server.bind(Network.port, Network.udpPort);
-        server.start();
         
         game.start();
     }
