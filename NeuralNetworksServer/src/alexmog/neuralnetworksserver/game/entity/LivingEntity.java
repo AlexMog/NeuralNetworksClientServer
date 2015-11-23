@@ -322,11 +322,11 @@ public class LivingEntity extends GeneticEntity {
         }
         hatchTime = 4000;
         maxLife = 3000;
-        maxAge = 5200;
+        maxAge = 8200;
         for (int i = 0; i < EVO_POINTS; ++i) {
             int random = Main.rand.nextInt(4);
             if (random == 0) {
-                damages += 4;
+                damages += 6;
             } else if (random == 1) {
                 hatchTime -= 10;
             } else if (random == 2) {
