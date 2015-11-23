@@ -52,8 +52,8 @@ public class Game {
                 
                 if (ticks == 0 || ticks % 100 == 0) {
                     int size = mEntityManager.getAll(Food.class).size();
-                    if (size <= 300) {
-                        populateFood(450 - size);
+                    if (size <= 200) {
+                        populateFood(300 - size);
                     }
                 }
                 ticks++;

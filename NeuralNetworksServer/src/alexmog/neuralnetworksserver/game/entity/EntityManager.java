@@ -13,7 +13,7 @@ import alexmog.neuralnetworksserver.Main;
 import alexmog.neuralnetworksserver.game.Game;
 
 public class EntityManager {
-    public static final int WORLD_WIDTH = 2000, WORLD_HEIGHT = 2000;
+    public static final int WORLD_WIDTH = 1000, WORLD_HEIGHT = 1000;
     private List<Entity> mToAdd = new ArrayList<>();
     private List<Entity> mEntities = new ArrayList<>();
     private List<Entity> mCollided = new ArrayList<>();
