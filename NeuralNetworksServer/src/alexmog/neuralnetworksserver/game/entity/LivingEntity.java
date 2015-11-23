@@ -197,7 +197,7 @@ public class LivingEntity extends GeneticEntity {
             if (team == 0 && e instanceof Food) {
                 e.mToDelete = true;
                 mFitness += 15;
-                life += 300;
+                life += 100;
                 /*if (life > maxLife) {
                     life = maxLife;
                     mFitness -= 20;
@@ -275,7 +275,7 @@ public class LivingEntity extends GeneticEntity {
             angle -= output[1] * 4;
         }
         double speed = output[2] * 2;
-        life -= output[2];
+//        life -= output[2];
         red = (float)output[3];
         green = (float)output[4];
         blue = (float)output[5];
@@ -320,7 +320,11 @@ public class LivingEntity extends GeneticEntity {
             red = 1;
             green = 0;
         }
-        hatchTime = 4000;
+        hatchTime = 3000;
+        maxLife = 2000;
+        maxAge = 10000;
+        damages = 100;
+/*        hatchTime = 4000;
         maxLife = 3000;
         maxAge = 8200;
         for (int i = 0; i < EVO_POINTS; ++i) {
@@ -334,7 +338,7 @@ public class LivingEntity extends GeneticEntity {
             } else {
                 maxAge += 100;
             }
-        }
+        }*/
         life = maxLife;
     }
 
