@@ -7,9 +7,11 @@ import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.minlog.Log;
 
 import alexmog.network.packets.EntityPacket;
+import alexmog.network.packets.HandshakePacket;
 import alexmog.network.packets.NewEntityPacket;
 import alexmog.network.packets.RemoveEntityPacket;
 import alexmog.neuraltests.game.client.actions.EntityAction;
+import alexmog.neuraltests.game.client.actions.HandshakeAction;
 import alexmog.neuraltests.game.client.actions.NewEntityAction;
 import alexmog.neuraltests.game.client.actions.RemoveEntityAction;
 
@@ -21,6 +23,7 @@ public class PacketsInterpretator {
         mPackets.put(EntityPacket.class, new EntityAction());
         mPackets.put(NewEntityPacket.class, new NewEntityAction());
         mPackets.put(RemoveEntityPacket.class, new RemoveEntityAction());
+        mPackets.put(HandshakePacket.class, new HandshakeAction());
     }
     
     public boolean onPacketReceived(Connection connection, Object packet) {
