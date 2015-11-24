@@ -31,6 +31,11 @@ public class GameScreen implements GameState {
     private int mPing;
     private float mPingTimeout;
     
+    // This is temporary. Clearly ugly code.
+    public static long startTimestamp = 0;
+    public static String mStartDate = "Not set";
+    public static long mTimeElapsed = 0;
+    
     @Override
     public void init(GameContainer container, StateBasedGame game)
             throws SlickException {
@@ -64,6 +69,8 @@ public class GameScreen implements GameState {
         g.setColor(Color.white);
         g.drawString("Best generation: " + bestGeneration, 10, 70);
         g.drawString("Ping: " + mPing, 10, 85);
+        g.drawString("Started date: " + mStartDate, 10, 100);
+        g.drawString("Time elapsed since started (in s): " + (mTimeElapsed - startTimestamp) / 1000, 10, 115);
         g.drawString("Population: " + population, 10, 130);
     }
 
@@ -78,6 +85,7 @@ public class GameScreen implements GameState {
             mPingTimeout = 1000;
         }
         mPingTimeout -= delta;
+        mTimeElapsed += delta;
         
         if (container.getInput().isKeyDown(Input.KEY_UP)) {
             mCameraPos.y += 1 * delta;

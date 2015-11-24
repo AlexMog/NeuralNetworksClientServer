@@ -1,5 +1,6 @@
 package alexmog.network.packets;
 
 public class HandshakePacket {
-    //TODO
+    public int worldHeight, worldWidth;
+    public long startTimestamp;
 }

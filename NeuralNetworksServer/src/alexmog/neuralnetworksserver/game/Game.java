@@ -19,6 +19,7 @@ public class Game {
     private PacketsInterpretator mInterpretator = new PacketsInterpretator();
     private int mPopulation;
     private float lag = 0;
+    public static long startTimestamp = System.currentTimeMillis();
 
     public void start() {
         long currTicks = System.currentTimeMillis();
