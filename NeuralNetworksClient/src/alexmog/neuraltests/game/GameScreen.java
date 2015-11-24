@@ -28,6 +28,8 @@ public class GameScreen implements GameState {
     private PacketsInterpretator mInterpretator = new PacketsInterpretator();
     private Vector2f mCameraPos = new Vector2f();
     private Vector2f mCameraSize = new Vector2f(1, 1);
+    private int mPing;
+    private float mPingTimeout;
     
     @Override
     public void init(GameContainer container, StateBasedGame game)
@@ -58,10 +60,10 @@ public class GameScreen implements GameState {
         for (Food f : mFoods) {
             f.render(container, game, g);
         }*/
-        g.scale(1, 1);
-        g.translate(-mCameraPos.x, -mCameraPos.y);
+        g.resetTransform();
         g.setColor(Color.white);
         g.drawString("Best generation: " + bestGeneration, 10, 70);
+        g.drawString("Ping: " + mPing, 10, 85);
         g.drawString("Population: " + population, 10, 130);
     }
 
@@ -69,6 +71,13 @@ public class GameScreen implements GameState {
     public void update(GameContainer container, StateBasedGame game, int delta)
             throws SlickException {
         bestGeneration = 0;
+        
+        if (Main.client.isConnected() && mPingTimeout <= 0) {
+            Main.client.updateReturnTripTime();
+            mPing = Main.client.getReturnTripTime();
+            mPingTimeout = 1000;
+        }
+        mPingTimeout -= delta;
         
         if (container.getInput().isKeyDown(Input.KEY_UP)) {
             mCameraPos.y += 1 * delta;
