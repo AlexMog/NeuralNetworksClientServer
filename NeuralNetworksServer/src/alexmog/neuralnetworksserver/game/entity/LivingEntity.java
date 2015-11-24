@@ -186,7 +186,8 @@ public class LivingEntity extends GeneticEntity {
         int j = 4;
         for (int i = 0; i < mNearestEntities.length; ++i) {
             if (mNearestEntities[i] != null) {
-                input[j++] = mNearestEntities[i].getShape().getLocation().distanceSquared((i % 2 == 0 ? rightSensor : rightSensor));
+                //input[j++] = mNearestEntities[i].getShape().getLocation().distanceSquared((i % 2 == 0 ? rightSensor : rightSensor));
+                input[j++] = (float)mNearestEntities[i].getShape().getLocation().getTheta() / 90;
                 input[j++] = mNearestEntities[i].red;
                 input[j++] = mNearestEntities[i].green;
                 input[j++] = mNearestEntities[i].blue;
