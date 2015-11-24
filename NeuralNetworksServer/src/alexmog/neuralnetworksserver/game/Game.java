@@ -10,7 +10,7 @@ import alexmog.neuralnetworksserver.server.ServerListener;
 public class Game {
     private static final int FPS = 60;
     private static final float WAIT = 1000 / FPS;
-    private static float MS_PER_TICK = 5;
+    private static float MS_PER_TICK = 10;
     public static final int MAX_LIVING = 50, MIN_LIVING = 20;
     int ticks;
     public static int bestGeneration;
@@ -58,12 +58,13 @@ public class Game {
                 }
                 ticks++;
                 lag -= MS_PER_TICK;
-                if (delta < WAIT) {
-                    try {
-                        Thread.sleep((long) (WAIT - delta));
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+            }
+            mEntityManager.synchronize();
+            if (delta < WAIT) {
+                try {
+                    Thread.sleep((long) (WAIT - delta));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }

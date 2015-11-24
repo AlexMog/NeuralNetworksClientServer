@@ -55,13 +55,18 @@ public class EntityManager {
                 mEntities.remove(e);
                 Main.sendTCP(constructDeleteEntity(e), true);
             } else {
-                if (e instanceof LivingEntity) {
-                    Main.sendUDP(constructSyncDatas(e), true);
-                }
                 ++i;
                 if (e instanceof LivingEntity) {
                     mLivingEntities++;
                 }
+            }
+        }
+    }
+    
+    public void synchronize() {
+        for (Entity e : mEntities) {
+            if (e instanceof LivingEntity) {
+                Main.sendUDP(constructSyncDatas(e), true);
             }
         }
     }
