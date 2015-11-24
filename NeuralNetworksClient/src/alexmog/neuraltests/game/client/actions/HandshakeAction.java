@@ -15,6 +15,7 @@ public class HandshakeAction extends PacketAction {
         HandshakePacket p = (HandshakePacket) packet;
         GameScreen.startTimestamp = p.startTimestamp;
         GameScreen.mStartDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(p.startTimestamp);
+        GameScreen.mTimeElapsed = System.currentTimeMillis();
     }
 
 }
