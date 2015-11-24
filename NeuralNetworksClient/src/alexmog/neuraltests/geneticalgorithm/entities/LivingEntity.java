@@ -95,7 +95,7 @@ public class LivingEntity extends Entity {
             Entity e = mNearestEntities[i];
             if (e != null && e.getShape() != null) {
                 g.setColor(new Color(e.red, e.green, e.blue));
-                Vector2f sensor = i % 2 == 0 ? rightSensor : leftSensor;
+                Vector2f sensor = i % 2 == 0 ? leftSensor : rightSensor;
                 g.drawLine(e.getShape().getCenterX(), e.getShape().getCenterY(),
                         sensor.getX(), sensor.getY());
             }
