@@ -4,8 +4,8 @@ A server and client side to visualize the evolution of neural networks in a surv
 ### How to use
 #### Requirements
 This project requires thoes to be installed on your system:
-- **Java 7+
-- **Maven (needs oracle java version for build, not openjdk)
+- Java 7+
+- Maven (needs oracle java version for build, not openjdk)
 
 To build the server part, use this command:
 ```bash
